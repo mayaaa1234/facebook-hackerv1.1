@@ -1,0 +1,39 @@
+body{
+  margin: 0;
+  height: 100vh;
+}
+div {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+button {
+  margin: 10px 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-radius: 5px;
+  font-weight: bold;
+}
+button:hover {
+  cursor: pointer;
+  background-color: rgb(39, 229, 80);
+}
+#header {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.5em;
+  margin: 30px auto 10px auto;
+  text-align: center;
+  margin-bottom: 30px;
+}
+input{
+  margin: 5px 0;
+}
+#output{
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 2em;
+}
+#fadeImage {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}

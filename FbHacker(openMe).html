@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook Hacker</title>
+  <link rel="stylesheet" href="FbHacker.css">
+  <style>
+    .extra-small-text {
+      font-size: x-small;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+
+    <p id="header">Facebook Hacker by Jeremiah v1.1</p>
+    <label>Facebook link:</label>
+    <input type="text" placeholder="Enter user facebook link" required>
+    <label>Change password:</label>
+    <input type="password" placeholder="Enter new password" required>
+    <button type="sumbit" onclick="checkAndPlay()">HACK FACEBOOK ACCOUNT</button>
+    
+
+
+    <img id="fadeImage" src="TransformationWolf.jpg" alt="Fading Image">
+    <p id="output"></p>
+  </div>
+
+  <script>
+    function tenPmMoments(hour, music) {
+      if (hour === 22) {
+        setTimeout(() => {
+          const lines = [
+            '10pm na pala shet, tulong!!! ARRRGGGGHHH!!!!!!',
+            'nagtransform*',
+            'Dii mapigilangg magg-isipppp :\'( ',
+            'na baka sa tagaall,',
+            'mahulog ang loob mo sa ibbaaaaaaaaaaaaaa!!! 💔💔😢😢😢',
+            'I MISS YOU - HatdogNaMalungkot'
+          ];
+
+          let currentLineIndex = 0;
+
+          function displayLine(line, isSmall = false) {
+            let letters = line.split('');
+            let index = 0;
+
+            const interval = setInterval(() => {
+              if (index < letters.length) {
+                document.getElementById('output').textContent += letters[index];
+                index++;
+              } else {
+                clearInterval(interval);
+
+                if (isSmall) {
+                  document.getElementById('output').classList.add('extra-small-text');
+                }
+
+                if (currentLineIndex === 1) {
+                  // Fade in the image immediately after the 'nagtransform*' line
+                  document.getElementById('fadeImage').style.opacity = 1;
+                }
+
+                setTimeout(() => {
+                  // Clear the current line
+                  document.getElementById('output').textContent = '';
+
+                  // Remove the extra-small-text class
+                  document.getElementById('output').classList.remove('extra-small-text');
+
+                  // Move to the next line
+                  currentLineIndex++;
+
+                  if (currentLineIndex < lines.length - 1) {
+                    // Set up the next line
+                    displayLine(lines[currentLineIndex], currentLineIndex === lines.length - 2);
+                  } else {
+                    // Display the last line letter by letter
+                    const lastLine = lines[currentLineIndex];
+                    let lastLineIndex = 0;
+
+                    const lastLineInterval = setInterval(() => {
+                      if (lastLineIndex < lastLine.length) {
+                        document.getElementById('output').textContent += lastLine[lastLineIndex];
+                        lastLineIndex++;
+                      } else {
+                        clearInterval(lastLineInterval);
+                      }
+                    }, 100); // 0.1 seconds delay between each letter (adjust if needed)
+                  }
+                }, 500); // 0.5 seconds delay before starting the next line
+              }
+            }, 100); // 0.1 seconds delay between each letter (adjust if needed)
+          }
+
+          // Start displaying the first line
+          displayLine(lines[currentLineIndex], currentLineIndex === lines.length - 2);
+        }, 3500); // 3.5 seconds delay for result
+      }
+    }
+
+    function checkAndPlay() {
+      const musicSource = '10PmNaPalaShet.mp3';
+      tenPmMoments(22, musicSource);
+      const audio = new Audio(musicSource);
+      audio.play();
+    }
+  </script>
+</body>
+
+</html>
