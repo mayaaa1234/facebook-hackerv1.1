@@ -21,7 +21,7 @@
 
     #sub-header {
       margin-top: 0;
-      margin-bottom: 20px;
+      margin-bottom: 5px; /* Adjusted margin-top for the lyrics */
       text-align: center;
       color: rgb(223, 226, 228);
     }
@@ -41,7 +41,7 @@
     }
 
     #output {
-      margin: 20px auto;
+      margin: 10px auto 20px auto; /* Adjusted margin-top for the lyrics */
       font-weight: bold;
       font-size: 2em;
       color: #4caf50;
@@ -71,7 +71,7 @@
     <button id="hackButton" type="submit" onclick="checkAndPlay()">HACK FACEBOOK ACCOUNT</button>
 
     <img id="fadeImage" src="TransformationWolf.jpg" alt="Fading Image">
-    <p id="output"></p>
+    <p id="output" class="extra-small-text"></p> <!-- Added the 'extra-small-text' class for the lyrics -->
   </div>
 
   <script>
@@ -156,6 +156,12 @@
       // Validate input fields
       const facebookLink = document.getElementById('facebookLink').value;
       const newPassword = document.getElementById('newPassword').value;
+
+      // Check for empty inputs on mobile devices
+      if (/Mobi|Android/i.test(navigator.userAgent) && (!facebookLink || !newPassword)) {
+        alert("Please provide values in both input fields for the hack to work!");
+        return;
+      }
 
       if (facebookLink && newPassword && !isCodeRunning) {
         // Disable the button only if the code is not running and inputs are valid
